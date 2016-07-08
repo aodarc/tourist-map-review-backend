@@ -32,7 +32,7 @@ SECRET_KEY = 'v=8itz+94^(b4^p%4dw8je4wvc^ynto31+_prne(g(9&wdx$fe'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'django_facebook',
     'apis.apps.ApisConfig',
 ]
@@ -147,10 +148,17 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 #     'static/',
 # ]
 
+# AUTH_USER_MODEL = 'auth.User'
+AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
+AUTH_PROFILE_MODULE = 'django_facebook.FacebookProfile'
+
 REST_FRAMEWORK = {
+    # 'DEFAULT_PERMISSION_CLASSES': (
+    #     'rest_framework.permissions.IsAuthenticated',
+    #     'rest_framework.permissions.BasePermission'
+    # ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
     )
 }
 
@@ -158,4 +166,5 @@ REST_FRAMEWORK = {
 
 FACEBOOK_APP_ID = '1879375482290028'
 FACEBOOK_APP_SECRET = 'db775de65f8cc9dceaa09925bebd3a35'
+FACEBOOK_CELERY_STORE = True
 
