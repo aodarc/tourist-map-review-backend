@@ -13,6 +13,6 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
 
 
-class ReviewViewSet(viewsets.ModelViewSet):
+class ReviewViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = ReviewObject.objects.all()
     serializer_class = ReviewObjectSerializer
