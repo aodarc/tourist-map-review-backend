@@ -12,7 +12,7 @@ router.register(r'all_reviews', ReviewViewSet)
 
 urlpatterns = [
     url(r'^auth/', views.obtain_auth_token),
-    url(r'sign_up/$', sign_up)
+    url(r'^sign_up/$', sign_up)
     # static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ]
 

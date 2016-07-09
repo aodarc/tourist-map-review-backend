@@ -148,9 +148,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 #     'static/',
 # ]
 
-# AUTH_USER_MODEL = 'auth.User'
 AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
 AUTH_PROFILE_MODULE = 'django_facebook.FacebookProfile'
+# AUTH_USER_MODEL = 'auth.User'
+# AUTH_PROFILE_MODULE = 'apis.UserProfile'
 
 REST_FRAMEWORK = {
     # 'DEFAULT_PERMISSION_CLASSES': (

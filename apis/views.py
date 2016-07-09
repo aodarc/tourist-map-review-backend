@@ -28,8 +28,11 @@ class ReviewViewSet(viewsets.ReadOnlyModelViewSet):
 @permission_classes(permissions.BasePermission)
 @api_view(['POST',])
 def sign_up(request):
-    facebook = OpenFacebook(request.data['token'])
+    facebook = OpenFacebook(request.data['access_token'])
     if facebook.is_authenticated():
         fb = FacebookUserConverter(facebook)
-        print(facebook.get('me'))
-    return Response({"adsda":"dasgwegwe"})
+        # print(facebook.get('me'))
+        # print(facebook.get('me/friends'))
+        print(fb.get_friends())
+        print(fb.facebook_profile_data())
+        return Response(facebook.get('me'))
