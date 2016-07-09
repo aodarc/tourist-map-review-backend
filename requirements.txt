@@ -1,0 +1,4 @@
+Django==1.9.7
+django-facebook==6.0.4
+djangorestframework==3.3.3
+Pillow-SIMD==3.3.0.post1
